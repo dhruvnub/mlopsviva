@@ -5,7 +5,7 @@ pipeline {
         
         stage('Train') {
             steps {
-                sh 'python src/train.py'
+                bat 'python src/train.py'
             }
         }
         
