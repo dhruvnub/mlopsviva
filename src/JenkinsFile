@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install') {
+            steps {
+                sh 'pip install scikit-learn joblib'
+            }
+        }
+        stage('Train') {
+            steps {
+                sh 'python src/train.py'
+            }
+        }
+        
+    }
+
+    post {
+        success { echo 'Pipeline passed!' }
+        failure { echo 'Pipeline failed.' }
+    }
+}
